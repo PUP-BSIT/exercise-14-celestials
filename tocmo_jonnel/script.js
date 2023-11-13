@@ -1,9 +1,11 @@
-function buttonToggle() {
-    let nameInput = document.querySelector("#name").value.trim();
-    let commentBox = document.querySelector("#comment").value.trim();
-    let commentButton = document.querySelector("#comment_button");
+const comments = JSON.parse(localStorage.getItem('comments')) || [];
 
-    if(nameInput.length && commentBox.length) {
+function buttonToggle() {
+    const nameInput = document.querySelector("#name").value.trim();
+    const commentBox = document.querySelector("#comment").value.trim();
+    const commentButton = document.querySelector("#comment_button");
+
+    if (nameInput.length && commentBox.length) {
         commentButton.disabled = false;
     } else {
         commentButton.disabled = true;
@@ -11,20 +13,44 @@ function buttonToggle() {
 }
 
 function addComment() {
-    let onInputName = document.querySelector('#name').value;
-    let onInputMessage = document.querySelector('#comment').value;
-    let commentSection = document.querySelector('.comment-section');
-    const commentBox = document.createElement('span');
-    const comment = document.createElement('p');
+    const onInputName = document.querySelector('#name').value;
+    const onInputMessage = document.querySelector('#comment').value;
 
-    comment.textContent = `${onInputName}: ${onInputMessage}`;
+    const newComment = {
+        name: onInputName,
+        message: onInputMessage,
+        date: new Date()
+    };
 
-    commentBox.appendChild(comment);
-    commentSection.appendChild(commentBox);
+    comments.push(newComment);
+
+    localStorage.setItem('comments', JSON.stringify(comments));
+
+    comments.sort((a, b) => b.date - a.date);
+
+    renderComments();
 
     document.querySelector('#name').value = '';
     document.querySelector('#comment').value = '';
 }
 
+function sortComments(order) {
+    if (order === 'asc') {
+        comments.sort((a, b) => a.date - b.date);
+    } else if (order === 'desc') {
+        comments.sort((a, b) => b.date - a.date);
+    }
+    renderComments();
+}
 
+function renderComments() {
+    const commentSection = document.querySelector('#comment_list');
 
+    commentSection.innerHTML = '';
+
+    comments.forEach(comment => {
+        const commentElement = document.createElement('p');
+        commentElement.textContent = `${comment.name}: ${comment.message}`;
+        commentSection.appendChild(commentElement);
+    });
+}
