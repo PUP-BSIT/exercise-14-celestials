@@ -162,12 +162,11 @@
 
         <div class="comment-box">
             <h2>Comment Section</h2>
-                <p>Lay: How to be you po?</p>
-                <p>Chan: Hello how are you?</p>
-                <p>Pearl: This is so wonderful! 
-                    Keep up the good work~</p>
-                <p>Jo: Nice website</p>
                 <p id ="comment_list" class ="comment-section"></p>
+                <div class="sort-buttons">
+                    <button onclick="sortComments('asc')">Sort Ascending</button>
+                    <button onclick="sortComments('desc')">Sort Descending</button>
+                </div>
         </div>
 
             <div class="message">
@@ -176,18 +175,15 @@
                     <input type="text" id="name" 
                     class="text-box" oninput="buttonToggle()" 
                     placeholder="Enter your Name">
-                    <br>
                     <label for="comment">Comment: </label>
                     <textarea name="comment" id="comment" 
                     class="text-area" oninput="buttonToggle()" 
                     placeholder="Enter your Message"></textarea>
-                    <br>
                     <button type="button" id = "comment_button" 
                     class="comment-button" onclick="addComment()" 
                     disabled>COMMENT</button>
                 </form>
             </div>
-
         <script src = "script.js"></script>
     </body>
     
