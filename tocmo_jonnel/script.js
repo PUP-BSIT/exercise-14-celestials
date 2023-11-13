@@ -1,10 +1,9 @@
 function buttonToggle() {
-
     let nameInput = document.querySelector("#name").value.trim();
     let commentBox = document.querySelector("#comment").value.trim();
     let commentButton = document.querySelector("#comment_button");
 
-    if(nameInput.length > 0 && commentBox.length > 0) {
+    if(nameInput.length && commentBox.length) {
         commentButton.disabled = false;
     } else {
         commentButton.disabled = true;
