@@ -1,11 +1,9 @@
-/* function onTextChange not working */
-
 function onTextChange() {
     let name = document.querySelector("#name").value;
     let comments = document.querySelector("#comments").value;
     let commentButton = document.querySelector("#comment_button");
 
-    if (comments.length > 0 && name.length > 0) {
+    if (comments.length && name.length ) {
         commentButton.disabled = false;
     }
     else {
