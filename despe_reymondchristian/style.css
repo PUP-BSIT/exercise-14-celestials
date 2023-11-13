@@ -53,7 +53,8 @@ a:hover {
   flex-direction: column;
 }
 
-#name, #message {
+#name, 
+#message {
   width: 500px;
 }
 
