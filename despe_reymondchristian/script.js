@@ -1,7 +1,7 @@
 function onTextChange() {
-    let message = document.getElementById("message");
-    let name = document.getElementById("name");
-    let commentButton = document.getElementById("comment_button")
+    let message = document.querySelector("#message");
+    let name = document.querySelector("#name");
+    let commentButton = document.querySelector("#comment_button")
 
     if (message.value.length && name.value.length) {
         commentButton.disabled = false;
