@@ -3,7 +3,7 @@ function onTextChange() {
     let name = document.querySelector("#name").value.trim();
     let commentButton = document.querySelector("#comment_button");
 
-    if (message.length > 0 && name.length > 0) {
+    if (message.length && name.length) {
         commentButton.disabled = false;
     }
     else {
