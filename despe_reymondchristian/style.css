@@ -56,9 +56,15 @@ a:hover {
 #name, 
 #message {
   width: 500px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 #comment_button {
   width: 200px;
+}
+
+.comment-button {
+  margin-top: 10px;
 }
 
